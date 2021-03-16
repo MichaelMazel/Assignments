@@ -23,8 +23,8 @@ library(tidygeocoder)
 
 Data Import
 ```{r}
-df_brew <- read.csv(file = file.path('Data_Files', 'Breweries.csv'), header = TRUE)
-df_beer <- read.csv(file = file.path('Data_Files', 'Beers.csv'), header = TRUE)
+df_brew <- read.csv(file = file.path('Beer-EDA-and-Prediction-Data-Sets', 'Breweries.csv'), header = TRUE)
+df_beer <- read.csv(file = file.path('Beer-EDA-and-Prediction-Data-Sets', 'Beers.csv'), header = TRUE)
 ```
 
 First, look at the two data sets we will be using. 
@@ -83,7 +83,7 @@ ggplot(data = tally, mapping = aes(x = reorder(State, -n), n)) +
   labs(x = " ", y = "Number of Breweries", title = "Breweries by State")
 ```
 
-# Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file.  (RMD only, this does not need to be included in the presentation or the deck.)
+# Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the merged file. 
 ```{r}
 df <- merge(x = df_beer, y = df_brew, by.x = "Brewery_id", by.y = "Brew_ID")
 df <- df %>% rename(Brewery_ID = 1, Beer_Name = 2, Brewery_Name = 8, State = 10)
@@ -188,7 +188,7 @@ ggplot(data = df, mapping = aes(x = ABV * 100)) +
 
 ABV is right skewed and several outliers appear for high ABVs. There also appears to be an outlier that has approximately 0 ABV (ABV of 0.001 for a low alcohol beer called Scotty K NA).  
 
-# Is there an apparent relationship between the bitterness of the beer and its alcoholic content? Draw a scatter plot.  Make your best judgment of a relationship and EXPLAIN your answer.
+# Is there an apparent relationship between the bitterness of the beer and its alcoholic content?
 ```{r}
 cor(df$ABV, df$IBU, use = "complete.obs") 
 ```
@@ -274,7 +274,7 @@ train = df_clean[trainIndices,]
 test = df_clean[-trainIndices,]
 ```
 
-We will perform a cross validation with k = 1-100 with a plot of k (x-axis) versus accuracy.  We will use this plot to tune the hyperparameter k. 
+We will perform a cross validation with k = 1-60 with a plot of k (x-axis) versus accuracy.  We will use this plot to tune the hyperparameter k. 
 ```{r}
 accs = data.frame(accuracy = numeric(60), k = numeric(60))
 
@@ -306,17 +306,17 @@ confusionMatrix(table(predict(model,test[,c("ABV","IBU")]),test$IPA_Or_Ale))
 ```
 KNN accurately predicted 84.8% of the time, which slightly outperformed Naive Bayes at 83%.
 
-Below is a loop to repeat the previous KNN for 100 different random seeds. We will find the average accuracy to get a more stable statistic to evaluate the model.
+Below is a loop to repeat the previous KNN for 25 different random seeds. We will find the average accuracy to get a more stable statistic to evaluate the model.
 ```{r}
 splitPerc <- .7
-iterations = 100
-numks = 100
+iterations = 25
+numks = 60
 
 masterAcc = matrix(nrow = iterations, ncol = numks)
   
 for(j in 1:iterations)
 {
-accs = data.frame(accuracy = numeric(100), k = numeric(100))
+accs = data.frame(accuracy = numeric(25), k = numeric(25))
 trainIndices = sample(1:dim(df_clean)[1],round(splitPerc * dim(df_clean)[1]))
 train = df_clean[trainIndices,]
 test = df_clean[-trainIndices,]
@@ -362,7 +362,7 @@ MeanAcc
 ```
 This returns the accuracy, sensitivity, and specificity, respectively.
 
-Based off our averages, KNN accurately predicted about 86.3% of the time, which slightly outperformed Naive Bayes again, at 83.8%.
+Based off our averages, KNN accurately predicted about 87% of the time, which slightly outperformed Naive Bayes again, at 84.5%.
 
 # Find other useful inferences from the data that you feel Budweiser may be able to find value in.
 
