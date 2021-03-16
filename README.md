@@ -19,7 +19,7 @@
 <a name="SQL-Queries"></a>
 
 ## SQL Queries
-This python script connects to the MYSQL databases on my local machine. Before I performed these SQL queries, I created a third normal form schema from a collection of data about a fictional basketball tournament. Afterwards I performed queries for a fictional bike shop.
+This python script connects to the MySQL databases on my local machine. Before I performed these SQL queries, I created a third normal form schema from a collection of data about a fictional basketball tournament. Afterwards I performed queries for a fictional bike shop.
 
 ![Bball_Schema](https://github.com/MichaelMazel/Assignments/blob/main/SQL_Queries_Schemas/BBall_Schema.PNG)
 
@@ -32,7 +32,7 @@ Some example questions include:
 
 
 #### How to Use
-The mysql.connector library was used to link Python to MYSQL.  
+The mysql.connector library was used to link Python to MySQL.  
 The data sets were provided from my database class.
 
 ##### Technologies
