@@ -2,7 +2,7 @@
 
 # Assignments
 
->This repository stores select assignments from my Master’s in Data Science program. These are generally smaller scale pieces of work, and therefore, do not exist as stand-alone projects on my repo page. A description for each assignment can be found below, along with some findings. 
+>This repository stores select assignments from my Master’s in Data Science program. These are generally smaller scale pieces of work, and therefore, do not exist as stand-alone projects on my repo page. A summary for each assignment can be found below. 
 
 
 ---
@@ -28,12 +28,12 @@ Some example questions include:
 
 1. List the player names whose highest score in a game is more than 10 points higher than their personal average
 2. Find orders from 4th quarter 2012 that took 4 or more days to ship
-3. List the CUSTOMERS who have purchased a bike but not a helmet
+3. List the customers who have purchased a bike but not a helmet
 
 
 #### How to Use
-The mysql.connector library was used to link Python to MYSQL
-The data sets were provided from database class
+The mysql.connector library was used to link Python to MYSQL.  
+The data sets were provided from my database class.
 
 ##### Technologies
 Jupyter Notebooks  
@@ -48,7 +48,7 @@ Python version 3.8.5
 <a name="Beer-EDA-and-Prediction"></a>
 
 ## Beer EDA and Prediction
-In this group project, my partner and I used two data sets involving United States craft breweries and craft beers. Our exploratory data analysis spanned from examining the number of breweries in each state to the relationship between beer variables, such as ABV, ounces, and length of beer name. We then used KNN and Naive Bayes to classify a beer as either an IPA or Ale
+In this group project, my partner and I used two data sets involving United States craft breweries and craft beers. Our exploratory data analysis spanned from examining the number of breweries in each state to the relationship between beer variables, such as ABV, ounces, and length of beer names. We then used KNN and Naive Bayes to classify a beer as either an IPA or Ale
 
 Below are several of our findings via graphs
 ![Breweries by State](https://github.com/MichaelMazel/Beer-EDA-and-Prediction/blob/main/EDA-and-Prediction_files/figure-gfm/unnamed-chunk-6-1.png?raw=true)
